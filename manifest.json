@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+  "name": "OTO Radio",
+  "version": "1.0",
+  "description": "OTO Radio mission control center",
+  "permissions": [
+    "notifications"
+  ],
+  "background": {
+    "scripts": [
+      "background/mission-control-center.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://oto-radio.ru/"
+      ],
+      "js": [
+        "content_scripts/currently-playing-track-observer.js"
+      ]
+    }
+  ]
+}
