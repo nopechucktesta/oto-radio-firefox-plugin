@@ -76,3 +76,5 @@ function dispatchCaptureTrackNotification(capturedTrack) {
         message: `Captured at ${capturedTrack.capturedAt}`
     })
 }
+
+console.debug("Mission control center has been instantiated")

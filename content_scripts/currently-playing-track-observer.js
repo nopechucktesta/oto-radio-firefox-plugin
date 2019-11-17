@@ -35,3 +35,5 @@ function findCurrentlyPlayingTrackContainer(nodeList) {
     return [...nodeList.values()]
         .find(node => node.className === "info-now-plaing-song")
 }
+
+console.debug("Currently playing track observer has been instantiated")

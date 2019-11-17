@@ -4,8 +4,13 @@
   "version": "1.0",
   "description": "OTO Radio mission control center",
   "permissions": [
-    "notifications"
+    "notifications",
+    "tabs"
   ],
+  "browser_action": {
+    "default_title": "OTO mission control",
+    "default_popup": "popup/mission-control-panel.html"
+  },
   "background": {
     "scripts": [
       "background/mission-control-center.js"
@@ -17,6 +22,7 @@
         "https://oto-radio.ru/"
       ],
       "js": [
+        "content_scripts/audio-volume-controller.js",
         "content_scripts/currently-playing-track-observer.js"
       ]
     }
