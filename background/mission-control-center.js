@@ -3,7 +3,7 @@ browser.runtime.onMessage.addListener(({ type, ...payload }) => {
     console.debug(`Got new ${type} message`)
 
     switch (type) {
-        case "CURRENTLY_PLAYING_TRACK":
+        case Messages.OtoRadio.CurrentlyPlayingTrack:
             playlistListened.captureTrackIfNotListenedYet(payload["currentlyPlayingTrack"])
             return
 

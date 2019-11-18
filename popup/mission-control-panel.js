@@ -8,7 +8,7 @@ class MissionControlPanel {
     mute() {
         this.maybeOtoTab.then(otoTab =>
             browser.tabs
-                .sendMessage(otoTab.id, { type: "MUTE_OTO" }))
+                .sendMessage(otoTab.id, { type: Messages.MissionControlCenter.MuteOtoRadio }))
         return this
     }
 }

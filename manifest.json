@@ -13,6 +13,7 @@
   },
   "background": {
     "scripts": [
+      "lib/messages.js",
       "background/mission-control-center.js"
     ]
   },
@@ -22,9 +23,13 @@
         "https://oto-radio.ru/"
       ],
       "js": [
+        "lib/messages.js",
         "content_scripts/audio-volume-controller.js",
         "content_scripts/currently-playing-track-observer.js"
       ]
     }
+  ],
+  "web_accessible_resources": [
+    "lib/messages.js"
   ]
 }
