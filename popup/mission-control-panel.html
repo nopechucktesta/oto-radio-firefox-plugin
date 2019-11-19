@@ -7,7 +7,18 @@
 </head>
 
 <body>
-<button id="oto-mute">MUTE</button>
+<div id="mission-control-panel">
+    <div id="logo">
+        <img src="../images/oto-radio.png" alt="OTO Radio logo">
+        <button id="mute">
+            <img id="muted" src="../images/Mute_Icon.svg" alt="OTO is muted" hidden>
+            <img id="audible" src="../images/Speaker_Icon.svg" alt="OTO is audible" hidden>
+        </button>
+    </div>
+    <ul id="playlist">
+        <!-- ..goes here -->
+    </ul>
+</div>
 
 <script src="../lib/messages.js"></script>
 <script src="mission-control-panel.js"></script>
