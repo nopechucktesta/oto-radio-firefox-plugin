@@ -27,12 +27,9 @@ const missionState = new MissionState(playlistListened)
  * @param capturedTrack {CapturedTrack}
  * @returns {Promise}
  */
-function dispatchCaptureTrackNotification(capturedTrack) {
-    return browser.notifications.create({
-        type: "basic",
-        title: capturedTrack.signature,
-        message: `Captured at ${capturedTrack.capturedAt}`
-    })
+function dispatchTrackCaptureMessage(capturedTrack) {
+    return browser.runtime
+        .sendMessage({ type: Mission.Report.TrackCapture, capturedTrack })
 }
 
 console.debug("Mission control center has been instantiated")
