@@ -3,9 +3,16 @@ browser.runtime.onMessage.addListener(({ type, ...payload }) => {
     console.debug(`Got new ${type} message`)
 
     switch (type) {
-        case Messages.OtoRadio.CurrentlyPlayingTrack:
-            playlistListened.captureTrackIfNotListenedYet(payload["currentlyPlayingTrack"])
+        case Mission.Feedback.ActiveTrack:
+            return missionState.playlistListened
+                .captureTrackIfNotListenedYet(payload["currentlyPlayingTrack"])
+
+        case Mission.Feedback.Uptime:
+            missionState.uptime = payload["uptime"]
             return
+
+        case Mission.Request.State:
+            return missionState.state
 
         default:
             throw Error(`Unknown message type: ${type}`)

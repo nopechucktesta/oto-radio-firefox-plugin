@@ -19,7 +19,7 @@ observer.observe(currentlyPlayingTrackInfoContainer, observerConfiguration)
  */
 function handleCurrentlyPlayingTrackInfoMutation([currentlyPlayingTrackInfoMutation], observer) {
     return browser.runtime.sendMessage({
-        type: Messages.OtoRadio.CurrentlyPlayingTrack,
+        type: Mission.Feedback.ActiveTrack,
         currentlyPlayingTrack: findCurrentlyPlayingTrackContainer(
             currentlyPlayingTrackInfoMutation.addedNodes
         ).innerText,

@@ -16,7 +16,7 @@ browser.runtime.onMessage.addListener(({type, ...payload}) => {
 
     console.debug(`Got new ${type} message`)
 
-    if (type === Messages.MissionControlCenter.MuteOtoRadio) {
+    if (type === Mission.Control.Mute) {
         return audioVolumeController.mute()
     } else {
         throw Error(`Unknown message type: ${type}`)
