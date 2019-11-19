@@ -3,6 +3,9 @@
   "name": "OTO Radio",
   "version": "1.0",
   "description": "OTO Radio mission control center",
+  "icons": {
+    "48": "icons/oto-radio-48.png"
+  },
   "permissions": [
     "notifications",
     "tabs"
@@ -29,8 +32,5 @@
         "content_scripts/currently-playing-track-observer.js"
       ]
     }
-  ],
-  "web_accessible_resources": [
-    "lib/messages.js"
   ]
 }

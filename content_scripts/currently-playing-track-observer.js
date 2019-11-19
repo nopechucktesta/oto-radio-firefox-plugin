@@ -1,15 +1,16 @@
 /**
  * @type {MutationObserverInit}
  */
-const observerConfiguration = {
+const currentlyPlayingTrackInfoObserverConfiguration = {
     childList: true,
 }
 
 const [currentlyPlayingTrackInfoContainer] =
     document.getElementsByClassName("my_info")
 
-const observer = new MutationObserver(handleCurrentlyPlayingTrackInfoMutation)
-observer.observe(currentlyPlayingTrackInfoContainer, observerConfiguration)
+const currentlyPlayingTrackInfoObserver = new MutationObserver(handleCurrentlyPlayingTrackInfoMutation)
+currentlyPlayingTrackInfoObserver
+    .observe(currentlyPlayingTrackInfoContainer, currentlyPlayingTrackInfoObserverConfiguration)
 
 /**
  *
