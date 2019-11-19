@@ -19,57 +19,8 @@ browser.runtime.onMessage.addListener(({ type, ...payload }) => {
     }
 })
 
-class PlaylistListened {
-    /**
-     *
-     * @param onTrackCapture {function(CapturedTrack)}
-     * @param tracksListened {Array<CapturedTrack>}
-     */
-    constructor(onTrackCapture, tracksListened = []) {
-        this.onTrackCapture = onTrackCapture
-        this.tracksListened = tracksListened
-    }
-
-    /**
-     *
-     * @returns {CapturedTrack}
-     */
-    get currentlyPlayingTrack() {
-        return this.tracksListened[this.tracksListened.length - 1]
-    }
-
-    get isEmpty() {
-        return this.tracksListened.length === 0
-    }
-
-    /**
-     *
-     * @param trackSignature {string}
-     * @return {PlaylistListened}
-     */
-    captureTrackIfNotListenedYet(trackSignature) {
-        if (this.isEmpty || trackSignature !== this.currentlyPlayingTrack.signature) {
-            const capturedTrack = new CapturedTrack(trackSignature, new Date())
-            this.tracksListened.push(capturedTrack)
-            this.onTrackCapture(capturedTrack)
-        }
-        return this
-    }
-}
-
-class CapturedTrack {
-    /**
-     *
-     * @param signature {string}
-     * @param capturedAt {Date}
-     */
-    constructor(signature, capturedAt) {
-        this.signature = signature
-        this.capturedAt = capturedAt
-    }
-}
-
-const playlistListened = new PlaylistListened(dispatchCaptureTrackNotification)
+const playlistListened = new PlaylistListened(dispatchTrackCaptureMessage)
+const missionState = new MissionState(playlistListened)
 
 /**
  *
